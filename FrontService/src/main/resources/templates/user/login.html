@@ -10,18 +10,54 @@
     <meta name="author" content="">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="/css/login.css">
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/login.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@200;300;400;500&display=swap"
+          rel="stylesheet">
     <!-- script
     ================================================== -->
-    <script src="/js/modernizr.js"></script>
+    <script src="/static/js/modernizr.js"></script>
+    <style>
+        @font-face {
+            font-family: 'TTLaundryGothicB';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicB.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'TTLaundryGothicB', sans-serif;
+            font-size: 20px;
+            background-image: url("/static/images/memoria/background4.png");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+
+        p {
+            font-family: 'TTLaundryGothicB', sans-serif;
+            font-size: 15px;
+        }
+
+        h3 {
+            font-family: 'TTLaundryGothicB', sans-serif;
+            font-size: 20px;
+        }
+
+        h5 {
+            font-family: 'TTLaundryGothicB', sans-serif;
+            font-size: 20px;
+        }
+
+    </style>
 </head>
-<body class="bg-body" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
+<body class="bg-body" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%"
+      data-bs-smooth-scroll="true" tabindex="0">
 <div id="preloader">
       <span class="loader">
         <span class="loader-inner"></span>
@@ -31,14 +67,21 @@
 <header id="header" class="site-header text-black">
     <nav id="header-nav" class="navbar navbar-expand-lg px-3 mb-3" style="margin-top: 50px">
         <div class="container-fluid d-flex justify-content-center align-items-center">
-            <a class="navbar-brand d-flex justify-content-center align-items-center" href="index.html" style="width: 100%;">
-                <img src="/images/main-logo.png" class="logo" style="display: block; margin: 0 auto;">
+            <a class="navbar-brand d-flex justify-content-center align-items-center" href="../index.html"
+               style="width: 100%;">
+                <!--                <img src="/static/images/memoria/004.png" class="logo" style="display: block; margin: 0 auto;">-->
             </a>
         </div>
     </nav>
 </header>
 
-<div class="login-container">
+<div class="login-container" style="margin-top: 30px; background-color: beige; width: 45%;">
+    <div class="container-fluid d-flex justify-content-center align-items-center">
+        <a class="navbar-brand d-flex justify-content-center align-items-center" href="../index.html"
+           style="width: 100%;">
+            <img src="/static/images/memoria/004.png" class="logo" style="display: block; margin: 0 auto;">
+        </a>
+    </div>
     <form>
         <input type="text" placeholder="아이디를 입력해주세요." required>
         <input type="password" placeholder="비밀번호를 입력해주세요." required>
@@ -50,36 +93,10 @@
     </form>
 </div>
 
-<footer id="footer" class="overflow-hidden padding-large">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="row d-flex flex-wrap justify-content-between">
-                <div class="col-lg-3 col-sm-6 pb-3 pe-4">
-                    <div class="footer-menu">
-                        <img src="/images/main-logo.png" alt="logo" class="pb-3">
-                    </div>
-                    <div class="copyright">
-                        <p>© Copyright 2023. Design by <a href="https://templatesjungle.com/">TemplatesJungle</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="footer-menu contact-item">
-                        <h5 class="widget-title text-uppercase pb-2">Contact Us</h5>
-                        <p><a href="">+ 12(0) 34 56 78 910</a></p>
-                        <p><a href="mailto:">hello@templatesjungle.com</a></p>
-                        <p>tea berry, marinette, USA</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<script src="/js/jquery-1.11.0.min.js"></script>
+<script src="/static/js/jquery-1.11.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-<script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="/js/plugins.js"></script>
-<script type="text/javascript" src="/js/script.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="/static/js/plugins.js"></script>
+<script type="text/javascript" src="/static/js/script.js"></script>
 </body>
 </html>
