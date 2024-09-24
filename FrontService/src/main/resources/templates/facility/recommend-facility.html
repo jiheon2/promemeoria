@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@200;300;400;500&display=swap"
           rel="stylesheet">
     <script src="/static/js/modernizr.js"></script>
+    <script src="https://kit.fontawesome.com/5693f8ac72.js" crossorigin="anonymous"></script>
     <style>
         @font-face {
             font-family: 'TTLaundryGothicB';
@@ -36,14 +37,6 @@
             font-size: 15px;
         }
 
-        h1 {
-            font-family: 'TTLaundryGothicB', sans-serif;
-            font-size: 60px;
-            margin: 0 auto;
-            text-align: center;
-            color: #89480a;
-        }
-
         h3 {
             font-family: 'TTLaundryGothicB', sans-serif;
             font-size: 20px;
@@ -54,30 +47,98 @@
             font-size: 20px;
         }
 
-        /* 중앙 컨텐츠 박스 스타일 */
-        .content-box {
-            width: 40%;
-            height: 660px;
+        /* 두 개의 박스가 나란히 배치되는 레이아웃 */
+        .content-boxes {
+            width: 80%;
             margin: 50px auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .content-box {
+            flex: 1;
             background-color: #fff;
             border-radius: 20px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             padding: 50px;
+            height: 820px; /* 박스 높이를 고정 */
         }
 
-        #edit {
+        .search-box {
+            background: white;
+            /*border-radius: 40px;*/
+            padding: 10px;
+            border-bottom: 1px solid #89480a;
+            height: 7.5%;
+            margin: 0 20px 20px 20px;
+        }
+
+        .search-txt {
+            border: none;
+            background: none;
+            outline: none;
+            float: left;
+            color: #797979;
+            font-size: 16px;
+            line-height: 30px;
+        }
+
+        .search-button {
+            color: #89480a;
+            float: right;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        #dementia {
             margin: 0 auto;
             align-items: center;
             display: flex;
             background-color: #f1d5a3;
             border-color: #f1d5a3;
             color: #89480a;
-            height: 60px;
+            height: 40px;
             justify-content: center;
-            font-size: 20px;
-            width: 15%;
+            font-size: 16px;
+            width: 43%;
+            border-radius: 10px;
         }
 
+        #health {
+            margin: 0 auto;
+            align-items: center;
+            display: flex;
+            background-color: #f1d5a3;
+            border-color: #f1d5a3;
+            color: #89480a;
+            height: 40px;
+            justify-content: center;
+            font-size: 16px;
+            width: 43%;
+            border-radius: 10px;
+        }
+
+        .card {
+            font-size: 16px;
+            width: 95%;
+            margin: 0 auto 15px;
+        }
+
+        .card #facilityWork {
+            height: 150px;
+        }
+
+        .card-header {
+            background: #f8efdf;
+            color: #89480a;
+        }
 
     </style>
 </head>
@@ -150,65 +211,54 @@
 </header>
 
 <!-- 메인 페이지 -->
-<h1>회원정보 수정</h1>
-<!-- 중앙 컨텐츠 박스 -->
-<div class="content-box">
-    <!-- 컨텐츠가 들어갈 부분 -->
-    <div style="margin: 15px; display: flex">
-        <div class="input-group input-group-lg">
-            <input type="text" class="form-control" aria-label="Sizing example input" placeholder="이름을 입력해주세요"
-                   aria-describedby="inputGroup-sizing-lg" id="userName">
+
+<!-- 두 개의 중앙 컨텐츠 박스 -->
+<div class="content-boxes">
+    <div class="content-box">
+        <!-- 첫 번째 박스의 내용 -->
+    </div>
+    <div class="content-box">
+        <!-- 두 번째 박스의 내용 -->
+        <div class="search-box">
+            <input class="search-txt" type="text" name="" placeholder="시설명을 검색하세요">
+            <button class="search-button" type="button">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
         </div>
-    </div>
-    <div style="display: flex; justify-content: space-between; margin: 15px; color: #89480a">
-        <div class="input-group input-group-lg">
-            <input type="text" class="form-control" aria-label="Sizing example input" placeholder="나이를 입력해주세요"
-                   aria-describedby="inputGroup-sizing-lg" id="age">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 20px">
+            <button type="button" id="dementia">치매시설</button>
+            <button type="button" id="health">건강시설</button>
         </div>
-    </div>
-    <div style="margin: 15px; display: flex">
-        <div class="input-group input-group-lg">
-            <input type="text" class="form-control" aria-label="Sizing example input" placeholder="우편번호를 입력해주세요"
-                   aria-describedby="inputGroup-sizing-lg" style="width: 70%" id="postNumber">
+        <div class="card">
+            <div class="card-header">시설명</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="facilityName"><span>- </span>영등포구치매안심센터</li>
+            </ul>
         </div>
-        <button type="button" class="btn btn-success"
-                style="margin-left: 10px; width: 20%; background-color: #f8efdf; border-color: #f8efdf; color: #89480a">
-            우편번호
-        </button>
-    </div>
-    <div style="margin: 15px; display: flex">
-        <div class="input-group input-group-lg">
-            <input type="text" class="form-control" aria-label="Sizing example input" placeholder="주소를 입력해주세요"
-                   aria-describedby="inputGroup-sizing-lg" id="address1">
+        <div class="card">
+            <div class="card-header">시설유형</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="facilityType"><span>- </span>치매센터</li>
+            </ul>
         </div>
-    </div>
-    <div style="margin: 15px; display: flex">
-        <div class="input-group input-group-lg">
-            <input type="text" class="form-control" aria-label="Sizing example input" placeholder="상세주소를 입력해주세요"
-                   aria-describedby="inputGroup-sizing-lg" id="address2">
+        <div class="card">
+            <div class="card-header">시설주소</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="facilityAddress"><span>- </span>영등포</li>
+            </ul>
         </div>
-    </div>
-    <div style="margin: 15px; display: flex">
-        <div class="input-group input-group-lg">
-            <input type="text" class="form-control" aria-label="Sizing example input" placeholder="휴대폰번호를 입력해주세요"
-                   aria-describedby="inputGroup-sizing-lg" id="phoneNumber">
+        <div class="card">
+            <div class="card-header">시설전화번호</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="facilityCallNum"><span>- </span>02-0000-0000</li>
+            </ul>
         </div>
-    </div>
-    <div style="margin: 15px; display: flex">
-        <div class="input-group input-group-lg">
-            <input type="text" class="form-control" aria-label="Sizing example input" placeholder="이메일을 입력해주세요"
-                   aria-describedby="inputGroup-sizing-lg" style="width: 70%" id="email">
+        <div class="card">
+            <div class="card-header">업무내용</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="facilityWork"><span>- </span></li>
+            </ul>
         </div>
-        <button type="button" class="btn btn-success"
-                style="margin-left: 10px; width: 20%; background-color: #f8efdf; border-color: #f8efdf; color: #89480a">
-            인증
-        </button>
-    </div>
-    <div style="display: flex; justify-content: center; margin-top: 40px">
-        <button type="button" class="btn btn-success" id="edit">수정하기</button>
-    </div>
-    <div style="text-align: right; margin: 15px">
-        <button type="button" id="delete" style="color: red; cursor: pointer; background: none; border: none">탈퇴하기</button>
     </div>
 </div>
 <!-- 메인페이지 -->
