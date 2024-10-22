@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>PW찾기</title>
+    <title>Pro Memoria</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -110,7 +110,7 @@
         <div class="container-fluid">
 
             <!-- 로고 -->
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="login.html">
                 <img src="/static/images/memoria/004.png" class="logo">
             </a>
             <!-- 로고 -->
@@ -121,43 +121,33 @@
                     <ul id="navbar"
                         class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link me-4" href="#about-us">화상채팅</a>
+                            <a class="nav-link me-4" href="login.html">화상채팅</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link me-4" href="#about-us">시설추천</a>
+                            <a class="nav-link me-4" href="login.html">시설추천</a>
                         </li>
                         <li class="nav-item dropdown me-4">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdownPages" data-bs-toggle="dropdown"
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-bs-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">치매퀴즈</a>
                             <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownPages">
                                 <li>
-                                    <a href="shop-sidebar.html" class="dropdown-item item-anchor">퀴즈 생성</a>
+                                    <a href="login.html" class="dropdown-item item-anchor">퀴즈 생성</a>
                                 </li>
                                 <li>
-                                    <a href="shop-four-column.html" class="dropdown-item item-anchor">퀴즈 풀이</a>
+                                    <a href="login.html" class="dropdown-item item-anchor">퀴즈 풀이</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link me-4" href="#about-us">분석결과</a>
+                            <a class="nav-link me-4" href="login.html">분석결과</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdownPages" data-bs-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">내 정보</a>
-                            <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownPages">
-                                <li>
-                                    <a href="about-us.html" class="dropdown-item item-anchor">내 정보</a>
-                                </li>
-                                <li>
-                                    <a href="cart.html" class="dropdown-item item-anchor">내 퀴즈</a>
-                                </li>
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link me-4" href="login.html">로그인</a>
                         </li>
                     </ul>
                 </div>
             </div>
             <!-- 네비게이션바 -->
-
         </div>
     </nav>
 </header>
@@ -177,7 +167,7 @@
         <div style="margin: 15px; display: flex; justify-content: center">
             <div class="input-group input-group-lg">
                 <input type="text" class="form-control" aria-label="Sizing example input" placeholder="비밀번호"
-                       aria-describedby="inputGroup-sizing-lg" id="email">
+                       aria-describedby="inputGroup-sizing-lg" id="userPw">
             </div>
         </div>
     </div>
@@ -186,9 +176,15 @@
         <img src="/static/images/memoria/kakaoLogin.png" style="width: 100%; height: 100%; object-fit: cover;">
     </button>
     <div style="display: flex; justify-content: space-between; margin-top: 40px; font-size: 16px">
-        <a href="find-id.html"><div>아이디 찾기</div></a>
-        <a href="find-pwd.html"><div>비밀번호 찾기</div></a>
-        <a href="join.html"><div>회원가입</div></a>
+        <a href="find-id.html">
+            <div>아이디 찾기</div>
+        </a>
+        <a href="find-pwd.html">
+            <div>비밀번호 찾기</div>
+        </a>
+        <a href="join.html">
+            <div>회원가입</div>
+        </a>
     </div>
 </div>
 <!-- 메인페이지 -->
@@ -222,10 +218,58 @@
 </footer>
 <!-- 푸터 -->
 
-<script src="/static/js/jquery-1.11.0.min.js"></script>
+<script src="/static/js/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script type="text/javascript" src="/static/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="/static/js/plugins.js"></script>
 <script type="text/javascript" src="/static/js/script.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#login").on("click", function () {
+            let f = document.getElementById("f");
+
+
+            if (document.getElementById("userId").value === "") {
+                alert("아이디를 입력하세요.");
+                document.getElementById("userId").focus();
+                return;
+            }
+
+            if (document.getElementById("userPw").value === "") {
+                alert("비밀번호를 입력하세요.");
+                document.getElementById("userPw").focus();
+                return;
+            }
+
+            $.ajax({
+                url: "http://localhost:11000/user/v1/loginProc",
+                type: "post",
+                dataType: "JSON",
+                data: {
+                    userId: document.getElementById("userId"),
+                    userPw: document.getElementById("userPw")
+                }
+            }).then(
+                function (json) {
+                    if (json.data.result === 1) {
+                        alert(json.data.msg);
+                        location.href = "/user/index.html"
+                    } else {
+                        alert(json.data.msg);
+                        $("#userId").focus();
+                    }
+                },
+                function () {
+                    alert("에러가 발생하였습니다. \n다음에 다시 시도하길 바랍니다.");
+                    $("#userId").focus();
+                }
+            );
+        })
+
+    })
+
+</script>
 </body>
 </html>
