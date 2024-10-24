@@ -31,6 +31,9 @@
       <module name="GatewayService" target="17" />
       <module name="GatewayService.main" target="17" />
       <module name="GatewayService.test" target="17" />
+      <module name="NotificationService" target="17" />
+      <module name="NotificationService.main" target="17" />
+      <module name="NotificationService.test" target="17" />
       <module name="QuizService" target="17" />
       <module name="QuizService.main" target="17" />
       <module name="QuizService.test" target="17" />
